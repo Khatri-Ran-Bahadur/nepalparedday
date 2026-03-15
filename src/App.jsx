@@ -151,11 +151,11 @@ function App() {
         ))}
       </div>
 
-      <div className="bottom-section" style={{ paddingBottom: '3rem' }}>
-        <div style={{ fontSize: '2rem', fontWeight: '900', color: '#fff', textTransform: 'uppercase', letterSpacing: '2px' }}>
+      <div className="bottom-section" style={{ paddingBottom: '1rem' }}>
+        <div style={{ fontSize: '1.5rem', fontWeight: '900', color: '#fff', textTransform: 'uppercase', letterSpacing: '2px' }}>
           सन फ्रान्सिस्को, क्यालिफोर्निया • मे १०, २०२६
         </div>
-        <div style={{ marginTop: '1.2rem', fontSize: '1.2rem', opacity: 0.9, fontWeight: 600 }}>
+        <div style={{ marginTop: '1rem', fontSize: '1rem', opacity: 0.9, fontWeight: 600 }}>
           गर्विलो नेपाली, अमेरिकामा एकजुट
         </div>
       </div>
