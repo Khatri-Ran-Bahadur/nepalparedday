@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Mukta:wght@400;700;800&display=swap');
+
+:root {
+  --primary-color: #dc2626;
+  --secondary-color: #2563eb;
+  --accent-color: #fbbf24;
+  --text-light: #f8fafc;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Mukta', 'Inter', sans-serif;
+  overflow: hidden;
+  background: #000;
+  color: var(--text-light);
+}
+
+.banner-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-image: url('/bg.png');
+  background-size: cover;
+  background-position: 50% 30%; /* Focus on the bridge and mountains */
+  padding: 2rem 0;
+  transition: background-position 10s ease-in-out;
+}
+
+@keyframes slowZoom {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.1); }
+}
+
+.banner-container {
+  animation: slowZoom 30s infinite alternate ease-in-out;
+}
+
+.banner-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.8) 100%);
+  z-index: 1;
+}
+
+.tilted-slogan {
+  position: absolute;
+  top: 50%;
+  font-size: clamp(1.2rem, 3vw, 2.5rem);
+  font-weight: 800;
+  color: var(--accent-color);
+  z-index: 2;
+  white-space: nowrap;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 0.8rem 2.5rem;
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.slogan-left {
+  left: -40px;
+  transform: translateY(-50%) rotate(-90deg);
+}
+
+.slogan-right {
+  right: -40px;
+  transform: translateY(-50%) rotate(90deg);
+}
+
+.top-section, .bottom-section {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  text-align: center;
+}
+
+.header-title-nepali {
+  font-size: clamp(3rem, 12vw, 8rem);
+  font-weight: 950;
+  line-height: 1;
+  color: #fff;
+  text-shadow: 0 0 30px rgba(0,0,0,0.9), 0 0 10px rgba(251, 191, 36, 0.3);
+  margin-bottom: 0.5rem;
+  background: linear-gradient(to bottom, #fff, #ddd);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.countdown-timer {
+  background: linear-gradient(135deg, var(--primary-color), #991b1b);
+  display: inline-block;
+  padding: 1rem 3rem;
+  border-radius: 99px;
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-top: 0.5rem;
+  box-shadow: 0 0 40px rgba(220, 38, 38, 0.6);
+  border: 1px solid rgba(255,255,255,0.2);
+  z-index: 10;
+  position: relative;
+}
+
+.start-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(20px);
+}
+
+.start-btn {
+  padding: 1.5rem 4rem;
+  font-size: 2rem;
+  font-family: 'Mukta', sans-serif;
+  font-weight: 800;
+  color: #fff;
+  background: var(--primary-color);
+  border: none;
+  border-radius: 99px;
+  cursor: pointer;
+  box-shadow: 0 0 50px rgba(220, 38, 38, 0.8);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.start-btn:hover {
+  transform: scale(1.1);
+  background: #b91c1c;
+}
+
+.member-slider {
+  position: relative;
+  z-index: 2;
+  height: 50vh;
+  margin-top: -2rem; /* Pull slightly up but below countdown */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.member-card {
+  position: absolute;
+  width: min(380px, 90vw);
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 40px;
+  padding: 2.5rem;
+  text-align: center;
+  box-shadow: 0 40px 80px -12px rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+}
+
+.member-image-container {
+  width: 220px;
+  height: 220px;
+  margin: 0 auto 2rem;
+  border-radius: 40px;
+  border: 8px solid var(--accent-color);
+  overflow: hidden;
+  box-shadow: 0 0 50px rgba(251, 191, 36, 0.4);
+}
+
+.member-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.member-name {
+  font-size: 2.8rem;
+  font-weight: 900;
+  margin-bottom: 0.5rem;
+  letter-spacing: -1px;
+}
+
+.member-designation {
+  font-size: 1.5rem;
+  color: var(--accent-color);
+  font-weight: 800;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.member-phone {
+  font-size: 1.3rem;
+  font-weight: 700;
+  opacity: 0.9;
+  letter-spacing: 2px;
+  background: rgba(255,255,255,0.1);
+  padding: 0.5rem 1.5rem;
+  border-radius: 99px;
+  display: inline-block;
+}
+
+.audio-control {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 10;
+  background: rgba(0,0,0,0.5);
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .tilted-slogan {
+    display: none;
+  }
+  .member-card {
+    padding: 2rem;
+  }
+  .member-image-container {
+    width: 150px;
+    height: 150px;
+  }
+  .member-name {
+    font-size: 2rem;
+  }
+}
